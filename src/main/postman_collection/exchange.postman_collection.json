@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "dbb6a8d5-4d12-4457-8d22-bbd9bb44d7f5",
+		"name": "exchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25297908"
+	},
+	"item": [
+		{
+			"name": "Получение списка валют",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/currencies",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение конкретной валюты",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/currency/UAH",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"currency",
+						"UAH"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление новой валюты в базу",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Boobli2",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "DUB",
+							"type": "text"
+						},
+						{
+							"key": "sign",
+							"value": "DD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/currencies",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"currencies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение списка всех обменных курсов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/exchangeRates",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"exchangeRates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение конкретного обменного курса",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/exchangeRate/USDRUB",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"exchangeRate",
+						"USDRUB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление нового обменного курса в базу",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "baseCurrencyCode",
+							"value": "RUB",
+							"type": "text"
+						},
+						{
+							"key": "targetCurrencyCode",
+							"value": "BUB",
+							"type": "text"
+						},
+						{
+							"key": "rate",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/exchangeRates",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"exchangeRates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление существующего в базе обменного курса",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rate",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/exchangeRate/RUBBUB",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"exchangeRate",
+						"RUBBUB"
+					]
+				},
+				"description": "patch"
+			},
+			"response": []
+		},
+		{
+			"name": "Обмен одной валюты в другую",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://194.58.109.149:8080/exchange/exchange?from=BUB&to=RUB&amount=1000",
+					"protocol": "http",
+					"host": [
+						"194",
+						"58",
+						"109",
+						"149"
+					],
+					"port": "8080",
+					"path": [
+						"exchange",
+						"exchange"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "BUB"
+						},
+						{
+							"key": "to",
+							"value": "RUB"
+						},
+						{
+							"key": "amount",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
